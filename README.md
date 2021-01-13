@@ -148,7 +148,7 @@ yarn workspace discovery-search-app run start
 
 8. Go to [localhost:3000](localhost:3000) in your browser. If everything is working, you should see something like this:
 
-   ![Example app](./docs/images/answer_screen.png)
+   ![Example app](https://github.com/akmnua/discovery-components/blob/master/docs/images/answers_screen.png)
 
 For more information on how each component can be customized and configured, check out our hosted [storybook](https://watson-developer-cloud.github.io/discovery-components/storybook)
 
