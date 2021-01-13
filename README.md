@@ -109,11 +109,11 @@ yarn workspace discovery-search-app run start
    CLUSTER_HOST={REPLACE_ME}
    ```
 
-   1. `REACT_APP_PROJECT_ID` is a guid contained in the URL (sample URL: `https://{CLUSTER_HOST}:{CLUSTER_PORT}/discovery/{RELEASE_NAME}/projects/{REACT_APP_PROJECT_ID}/workspace`) when viewing your Discovery project on the CP4D cluster (ex. `97ba736d-6563-4270-a489-c19d682b6369`)
-   2. `CLUSTER_USERNAME` the username used to log in to your CP4D dashboard and access your instance of Discovery (ex. `my_cp4d_username`)
-   3. `CLUSTER_PASSWORD` the password used to log in to your CP4D dashboard and access your instance of Discovery (ex. `my_cp4d_password`)
-   4. `CLUSTER_PORT` defaults to `443` unless configured otherwise
-   5. `CLUSTER_HOST` the base URL of your CP4D cluster (ex. `example.com`)
+   1. `REACT_APP_PROJECT_ID` Project_id on the instance
+   2. `CLUSTER_USERNAME` can be left blank
+   3. `CLUSTER_PASSWORD` Basic Auth header
+   4. `CLUSTER_PORT` can be left blank
+   5. `CLUSTER_HOST` can be left blank
 
    #### Windows Only
 
@@ -129,11 +129,7 @@ yarn workspace discovery-search-app run start
    yarn workspace @ibm-watson/discovery-react-components run build
    ```
 
-6. Perform one of the two steps
-
-   - Run the setup script (which does the same thing as the below step using the username/password provided in `.env.local` but requires `jq` to be installed locally -> Mac OSX: `brew install jq`)
-     ```
-     yarn workspace discovery-search-app run server:setup
+6. Perform the config step below
      ```
    - Create a `examples/discovery-search-app/.server-env` file with the following values:
      ```
@@ -141,8 +137,8 @@ yarn workspace discovery-search-app run start
      BASE_URL={REPLACE_ME}
      ```
      where:
-     - `RELEASE_PATH` is the url path part of the API URL shown in the CP4D UI (ex. `/discovery/release-name/instances/1578610482214/api`)
-     - `BASE_URL` is the protocol + host + port of the location that CP4D UI is hosted (ex. `https://zen-25-cpd-zen-25.apps.my-cluster-name.com:443`)
+     - `RELEASE_PATH` can be ignored and left empty
+     - `BASE_URL` is the URL that for the instance (e.g. https://api.us-south.discovery.watson.cloud.ibm.com/instances/91d1c55c-9687-4682-b444-b17895a7d68c)
 
 7. Start the example app:
 
