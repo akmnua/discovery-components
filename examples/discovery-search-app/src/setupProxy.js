@@ -31,15 +31,9 @@ if (clusterEnv.error) {
 const RELEASE_PATH = process.env.RELEASE_PATH || '/example/release/path';
 const BASE_URL = process.env.BASE_URL || 'http://example.com';
 const addAuthorization = async (req, _res, next) => {
-  const authenticator = new CloudPakForDataAuthenticator({
-    url: BASE_URL,
-    username: process.env.CLUSTER_USERNAME || 'username',
-    password: process.env.CLUSTER_PASSWORD || 'password',
-    disableSslVerification: true
-  });
   try {
-    const accessToken = await authenticator.tokenManager.getToken();
-    req.headers.authorization = `Bearer ${accessToken}`;
+    const accessToken = process.env.CLUSTER_PASSWORD;
+    req.headers.authorization = `Basic ${accessToken}`;
   } catch (e) {
     console.error(e);
   }
@@ -51,7 +45,7 @@ module.exports = function(app) {
     '/api',
     addAuthorization,
     proxy({
-      target: `${BASE_URL}${RELEASE_PATH}`,
+      target: `${BASE_URL}`,
       secure: false,
       changeOrigin: true,
       pathRewrite: {

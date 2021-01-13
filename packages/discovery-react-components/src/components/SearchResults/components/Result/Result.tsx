@@ -107,7 +107,19 @@ export const Result: React.FunctionComponent<ResultProps> = ({
     'document_passages[0]'
   );
   const firstPassageText = get(firstPassage, 'passage_text');
+  const firstAnswerText = get(firstPassage,'answers[0]["answer_text"]')
+  print(firstAnswerText)
   const hasPassage = usePassages && !!firstPassageText;
+  let displayedText: string | undefined = get(result, bodyField);
+  if (hasPassage) {
+    if(!!firstAnswerText){
+      displayedText = firstAnswerText + "*****" + firstPassageText;
+    }
+    else{
+      displayedText = firstPassageText;
+    }
+  }
+
   let displayedText: string | undefined = get(result, bodyField);
   if (hasPassage) {
     displayedText = firstPassageText;
