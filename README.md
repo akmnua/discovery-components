@@ -114,6 +114,9 @@ yarn workspace discovery-search-app run start
    3. `CLUSTER_PASSWORD` Basic Auth header
    4. `CLUSTER_PORT` can be left blank
    5. `CLUSTER_HOST` can be left blank
+   
+   Note: To enable Answer retrieval, make sure the assigned project has `find_answers:true` in the project default query parameters.
+
 
    #### Windows Only
 
@@ -149,7 +152,7 @@ yarn workspace discovery-search-app run start
 8. Go to [localhost:3000](localhost:3000) in your browser. If everything is working, you should see something like this:
 
    ![Example app](https://github.com/akmnua/discovery-components/blob/master/docs/images/answers_screen.png)
-
+   
 For more information on how each component can be customized and configured, check out our hosted [storybook](https://watson-developer-cloud.github.io/discovery-components/storybook)
 
 ## Using Discovery Components in a React application
